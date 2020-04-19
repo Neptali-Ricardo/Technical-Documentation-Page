@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Technical Documentation Page</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/estilos.css">
+</head>
+<nav id="navbar">
+	<header>¿Qué es JavaScript?</header>
+	<a href="#Introducción" class="nav-link">Introducción</a>
+	<a href="#¿Qué_podemos_hacer?" class="nav-link">¿Qué podemos hacer?</a>
+	<a href="#Que_hace_en_tu_página_web" class="nav-link">Que hace en tu página web</a>
+	<a href="#¿Cómo_añadir_JavaScript_a_tu_página_web?" class="nav-link">¿Cómo añadir JavaScript a tu página web?</a>
+	<a href="#Comentarios" class="nav-link">Comentarios</a>
+	<a href="#Resumen" class="nav-link">Resumen</a>
+	<a href="#En_este_módulo" class="nav-link">En este módulo</a>
+  </nav>
+  
+  <main id="main-doc">
+	<section class="main-section" id="Introducción">
+	  <header>Introducción</header>
+	  <p>JavaScript es un lenguaje de programación que te permite realizar actividades complejas en una página web —  cada vez más una página web hace más cosas que sólo mostrar información estática — como mostrar actualizaciones de contenido en el momento, interactuar con mapas, animaciones gráficas 2D/3D etc. — puedes estar seguro que JavaScript está involucrado. Es la tercera capa del pastel de los estándares en las tecnologías para la web, dos de las cuales son (HTML y CSS), hablaremos de ellas más adelante con más detalle en otra parte de nuestra Área de Aprendizaje.</p>
+	   <ul>
+		<li>HTML es un lenguaje de marcado que usa la estructura para dar un sentido al contenido web, por ejemplo define párrafos, cabeceras, tablas, imágenes y vídeos en la página.</li>
+		<li>CSS es un lenguaje de reglas en cascada que usamos para aplicar un estilo a nuestro contenido en HTML, por ejemplo colocando colores de fondo, fuentes y marginando nuestro contenido en múltiples columnas.</li>
+		<li>JavaScript Es un lenguaje de programación que te permite crear contenido nuevo y dinámico, controlar archivos de multimedia, crear imágenes animadas y muchas otras cosas más. (Aunque, no todo, pero es increíble lo que puedes llegar a hacer con tan sólo unas pocas líneas de código de JavaScript). </li>
+	  </ul>
+	  <p>Las 3 capas se complementan una con la otra. Vamos a agregar un simple texto a la etiqueta como un ejemplo. Podemos usar HTML para dar estructura y propósito:</p>
+		<pre>
+		<code class="grey">&lt;p&gt;Player 1: Chris&lt;/p&gt;</code>
+		</pre>
+  <p>Agregamos CSS para hacer que se vea agradable:</p>
+		<pre>
+		<code>P {
+		   font-family: 'helvetica neue', helvetica, sans-serif;
+		   letter-spacing: 1px;
+		   text-transform: uppercase;
+		   text-align: center;
+		   border: 2px solid rgba(0,0,200,0.6);
+		   background: rgba(0,0,200,0.3);
+		   color: rgba(0,0,200,0.6);
+		   box-shadow: 1px 1px 2px rgba(0,0,200,0.4);
+		   border-radius: 10px;
+		   padding: 3px 10px;
+		   display: inline-block;
+		   cursor: pointer;
+		 }</code>
+	  </pre>
+	  <p>y finalmente agregamos JavaScript para implementar comportamiento dinámico:</p>
+	   <pre>
+		<code>const para = document.querySelector('p');
+  
+		para.addEventListener('click', updateName);
+  
+		function updateName() {
+		  let name = prompt('Ingresa un nuevo nombre');
+		  para.textContent = 'Player 1: ' + name;
+		}</code>
+	  </pre>
+	  <p>Da click en el texto para ver qué sucede (también puedes encontrar la demostración en GitHub) ve el código fuente o ejecútalo en vivo!</p>
+	  <p>JavaScript puede hacer muchas cosas más - Vamos a explorar con más detalles.</p>
+	</section>
+	
+	<section class="main-section" id="¿Qué_podemos_hacer?">
+	  <header>¿Qué podemos hacer?</header>
+	  <p>El núcleo de JavaScript consiste en características comunes de programación que te permiten hacer cosas como:</p>
+	  <ul>
+		<li>Almacenar valores útiles dentro de variables. En el ejercicio anterior por ejemplo, preguntamos por un nuevo nombre a introducir para luego almacenarlo en una variable llamada <mark><code>&lt;name&gt;</code>.</mark></li>
+		<li>Las operaciones escritas en formato de texto (Conocidas como <strong>"Strings"</strong> en lenguaje de programación). En el ejemplo anterior tomamos el conjunto "Player 1:" y lo adjuntamos a la variable <mark><code>&lt;name&gt;</code></mark> para terminar de crear el código, ejemplo: "Player 1: Chris".</li>
+		<li>Para hacer funcionar el código en respuesta a algunos eventos que están ocurriendo en la página web. Usamos un evento en nuestro ejemplo anterior llamado clic para detectar cuando el botón es cliqueado para luego hacer correr el código que actualice la etiqueta de texto.</li>
+		<li>¡Y muchas más cosas!</li>
+	  </ul>
+	  <p>Hay algo incluso más emocionante, sin embargo es la funcionalidad construida por encima del núcleo del lenguaje de JavaScript. Llamada <strong>Interfaz de programación en aplicaciones - Application Programming Interfaces (API's )</strong> proveyéndote súper-poderes extra para usar en tú código JavaScript.</p>     
+	  <p>Los APIS son inserciones de líneas, incluso bloques gigantes de código listos para usar que permiten a un desarrollador implementarlo a programas que de cualquier otra forma podría ser difícil o incluso imposible de terminar. Así como las herramientas para construir una casa, es lo mismo para las cosas de programación – Es mucho más fácil tomar los paneles que ya estén cortados y atornillarlos para hacer un estante de libros, ya que es más trabajoso diseñarlo por ti mismo, ir y encontrar la madera correcta, cortarla del tamaño correcto y lijarla, buscar los tornillos del tamaño correcto y ensamblarla para hacer un estante de libros.</p>
+	  <p>Generalmente los API's se dividen en dos categorías:</p>
+	  <p><strong>Los Navegadores APIs (Browser APIs)</strong> son construidos dentro de tu buscador web, y son capaces de exponer información desde la cercanía en base al ambiente de tu ordenador, o hacer cosas complejas. Por ejemplo:</p>
+	  <ul>
+		<li>El DOM (Modelo de Objeto de Documento) API te permite manipular, crear, remover y cambiar códigos escritos en lenguaje HTML y CSS, incluso aplicando dinámicamente nuevos estilos a tu página web, etc. Cada vez que aparezca un aviso (popup) en una página web, o nuevo contenido a mostrarse en ella, (Así como vimos en el ejemplo anterior de nuestro sencillo demo) es tan sólo un ejemplo, de lo que se puede hacer con la acción DOM.</li>
+		<li>La Localización-Geo API restablece la información geográfica, Así es como Google Maps  permite encontrar tu dirección e imprimirla en un mapa. </li>
+		<li>Las Canvas y el WebGL API te permiten crear animaciones y gráficos en 2D y 3D. La gente está haciendo cosas increíbles usando estas tecnologías web – puedes ver los Chrome Experiments y webglsamples.</li>
+		<li>Video y Sonido APIs, como <mark><code>HTMLMediaElemen</code> </mark>y WebRTCte permite crear cosas realmente interesantes, tanto como poner música y vídeo en una página web o grabar un vídeo desde tu cámara web y que otra persona pueda verla desde su computadora (Prueba nuestro ejercicio Snapshot demo para tener una idea).</li>
+	  </ul>
+	  <div class="note">
+		<p><strong>Nota:</strong> Muchos de los tutoriales anteriores no funcionan en buscadores viejos – cuando practicamos, es buena idea usar un navegador actualizado, como Firefox, Chrome, Edge u Opera para hacer funcionar el código, considera que necesitarás usar el cross browser testing en más detalle cuando llegues a la parte de entregar tu código desarrollado (Código real que clientes reales usaran).</p>
+	  </div>
+	  <p><strong>APIs de Terceras personas,</strong> por determinado no son construidos dentro del navegador, y generalmente tienes que conseguir su código e información de alguna parte de la Web, por ejemplo:</p>
+	  <ul>
+		<li>El Twitter API permite que hagas cosas como mostrar los últimos tweets de alguien en tu sitio web.</li>
+		<li>El Google Maps API permite incrustar mapas personalizados en tu sitio web y otro tipo de funcionalidades.</li>
+	  </ul>
+	  <div class="note">
+		<p><strong>Nota:</strong> Estas APIs son avanzadas, y por lo tanto en este módulo no serán explicadas, puedes encontrar mucha más información acerca de esto en nuestro Client-side web APIs module.</p> 
+	  </div>
+		<p>¡Hay incluso muchas más APIs! sin embargo, no te emociones muy rápido. Ya que no tendrás la capacidad de construir en tan sólo 24 horas de estar estudiando JavaScript el siguiente Facebook, Instagram o Google Maps – Hay  muchos conceptos básicos aún por ver. Y es por eso que estás aquí – ¡Así que sigamos adelante!</p>
+	</section>
+	
+	<section class="main-section" id="Que_hace_en_tu_página_web">
+	  <header>Que hace en tu página web</header>
+	  <p>En este apartado, actualmente comenzaremos a ver unas cuantas líneas de código, y mientras hacemos eso vamos explorando lo que actualmente está pasando cuando haces funcionar tu código JavaScript en tu página Web.</p>
+	  <p>Hagamos un breve recordatorio del historial de lo que sucede cuando cargas una página web en tu navegador (primero hablamos acerca de cómo funciona CSS en nuestro artículo). Cuando cargas una página Web en tu navegador, tu código (HTML, CSS y JavaScript) es leído dentro de un ambiente de ejecución (pestaña del navegador). Esto es como una fábrica que coge la materia prima (Las líneas de código) y lo presenta como el producto final (la página Web).</p>
+	  <p>El lenguaje JavaScript es ejecutado por el motor del navegador de JavaScript, luego que el código HTML y CSS han sido juntados y congregados dentro de la página Web. Esto asegura que el estilo y la estructura de la página están en su lugar en el momento en que JavaScript comienza a ejecutarse.</p>
+	  <p>Esto es algo muy bueno, algo muy común en el uso de JavaScript para modificar dinámicamente el código HTML y CSS, para que la interfaz de usuario sea actualizada, usando <strong>DOM</strong> o el modelo de objeto de documento (como se mencionó anteriormente). Si al cargar JavaScript e intentar hacerlo funcionar antes de que sea leído el código HTML y CSS, se verá afectado, ocurriendo errores de programación.</p>
+	  <h3>Seguridad de navegador</h3>
+	  <p>Cada pestaña del navegador se considera como una cubeta en un compartimento separado para hacer funcionar el código (en términos técnicos las cubetas son llamadas “ambientes de ejecución”) – significa que en la mayoría de los casos los códigos en cada pestaña funcionan completamente separados, y el código en una pestaña no puede afectar directamente el código de otra pestaña, o en otro navegador. Esta es una buena medida de seguridad – si este no fuera el caso, entonces los piratas informáticos podrían estar modificando tu código para robar información de otro sitio web, y otras tantas cosas malas.</p>
+	  <div class="note">
+		<p><strong>Nota:</strong> Existen formas para enviar código e información entre diferentes sitios web/pestañas de una manera segura, pero estas son técnicas avanzadas que no cubriremos en este curso.</p> 
+	  </div>
+	  <h3>JavaScript funciona con un orden</h3>
+	  <p>Cuando el navegador encuentra un bloque de JavaScript, generalmente lo corre en orden, de arriba hacia abajo. Esto significa que tienes que tener cuidado en qué orden pones las cosas. Por ejemplo, regresemos al bloque de JavaScript que vimos en nuestro primer ejemplo:</p>
+	  <pre>
+		<code>var para = document.querySelector('p');
+  
+		para.addEventListener('click', updateName);
+  
+		function updateName() {
+		  var name = prompt('Enter a new name');
+		  para.textContent = 'Player 1: ' + name;
+		}</code>
+	  </pre>
+	  
+	  
+	  <p>Aquí seleccionamos un texto del párrafo (línea 1), luego es adherido a un evento espía (línea 3) entonces cuando el párrafo es cliqueado, el bloque de código updateName() empieza a funcionar (línea 5 – 8). El código de bloque updateName() (este tipo de código de bloque reusable son llamados “funciones”) interactúa con el usuario para preguntar un nuevo nombre, y luego lo inserta dentro del párrafo para actualizar lo que se esta visualizando.</p>
+	  <p>Si tú cambias el orden de las primeras dos líneas de código, no funcionaría – de hecho, conseguirás un error de retorno en la consola del desarrollador del navegador – TypeError: para is undefined. Esto significa que el objeto para no existe todavía, entonces no podremos añadir un evento espía.</p>
+	   <div class="note">
+		<p><strong>Nota:</strong> Este es un error muy común – necesitas ser cuidadoso ya que el objeto de referencia en tu código debe existir antes de intentar algo con él.</p> 
+	  </div>
+	  <h3>El Interpretador entre el código compilado</h3>
+	  <p>Quizás debiste escuchar sobre los términos <strong>interpretador</strong> y el <strong>compilador</strong> en contexto de programación, JavaScript es un lenguaje de interpretación – el código se hace funcionar de arriba hacia abajo y el resultado de leerlo de esta manera hace que inmediatamente responda. No tienes que transformar tu código en algo diferente antes de que el navegador lo haga por ti.</p>
+	  <p>En otra mano los lenguajes compilados  son transformados (compilado) antes de que sean leídos por la computadora. Por ejemplo C/C++ son lenguajes congregados para compilarlos para luego ser leídos por la computadora.</p>
+	  <p>Ambos accesos tienen diferentes ventajas, de los cuales no discutiremos en este punto.</p>
+	  <h3>El <strong>lado-del-servidor</strong> entre el código <strong>del-lado-del-cliente</strong></h3>
+	  <p>Quizás también debiste escuchar los términos lado-del-servidor y el código del lado-del-cliente, especialmente en contexto de desarrollo web. El código del cliente es código que funciona en la computadora del usuario – cuando una página web es visualizada, la página del código del cliente es descargada, para luego ser leída y mostrada en el navegador. En este módulo de JavaScript hablaremos explícitamente sobre el <strong>lado-del-cliente.</strong></p>
+	  <p>Por otro lado el lado-del-servidor es leído por el servidor, entonces el resultado es descargado y mostrado en el navegador. Ejemplos del uso popular del lenguaje web del lado-del-servidor incluye PHP, Python, Ruby y ASP.NET. ¡Y  JavaScript! Este lenguaje también puede ser usado como un lenguaje de lado-del-servidor, por ejemplo en el popular ambiente de Node.js – puedes encontrar más información sobre JavaScript del lado del servidor en nuestro tema Sitios web dinámicos - Programación del lado del servidor.</p>
+	  <h3>Código <strong>dinámico</strong> frente a código estático</h3>
+	  <p>La palabra dinámico es usada para describir ambos lados-del-cliente en JavaScript, y lenguajes del lado-del-servidor. Es referido a la habilidad para actualizar lo visualizado de una página/app para mostrar contenido diferente en diferentes circunstancias, requiriendo nuevo contenido a generar. Por ejemplo, subir archivos desde una base de datos, donde el lado-del-cliente de JavaScript genera dinámicamente nuevo contenido dentro del navegador del cliente, por ejemplo, creando una nueva tabla en código HTML, insertando datos que son llamados desde un servidor propio, para luego visualizarlo en la tabla de la página web y mostrárselo al usuario, El significado es un tanto diferente entre los dos contextos, pero teniendo relación, y aprovechando el trabajo mutuo entre (lado-del-servidor y lado-del-cliente).</p>
+	  <p>Una página web sin ninguna actualización de contenido dinámico es llamada como <strong>estática</strong> – ya que solamente muestra el mismo contenido todo el tiempo.</p>
+	</section>
+	
+	<section class="main-section" id="¿Cómo_añadir_JavaScript_a_tu_página_web?">
+	  <header>¿Cómo añadir JavaScript a tu página web?</header>
+		<p>JavaScript es aplicado a tu página en HTML de una manera similar al CSS. Donde el CSS usa el elemento <mark><code>&lt;link&gt;</code></mark> para aplicar estilos-de-hoja externos y el tag <mark><code>&lt;style&gt;</code></mark> es un elemento para aplicar estilos-de-hoja interno al HTML, JavaScript solamente necesita de un solo amigo en el mundo del HTML - que es el elemento <mark><code>&lt;script&gt;</code>.</mark> Aprendamos cómo funciona esto.</p>
+	  
+	  <h3>JavaScript por dentro</h3>
+	  <ol>
+		<li>Primero que nada, haz una copia de nuestro archivo ejemplo apply-javascript.html. Guárdalo en algún lugar donde puedas encontrarlo.</li>
+		<li>Abre el archivo en tu navegador y en tu editor de texto. Verás que el HTML creará una simple página web conteniendo un botón.</li>
+		<li>Luego, ve a tu editor de texto y añade lo siguiente justo antes del tag de cerrado <mark><code>&lt;/body&gt;</code>:</mark></li>
+		
+		  <pre>
+		<code>&lt;script&gt;
+		
+		 // JavaScript goes here
+		 
+		&lt;/script&gt;</code>
+		</pre>
+		<li>Ahora, añadiremos algo de JavaScript dentro de nuestro tag <mark><code>&lt;script&gt;</code></mark> para que la página haga algo más interesante – añade el siguiente código justo debajo de la línea de código "// JavaScript goes here":</li>
+		
+		  <pre>
+		<code>function createParagraph() {
+		  var para = document.createElement('p');
+		  para.textContent = 'You clicked the button!';
+		  document.body.appendChild(para);
+		}
+  
+		var buttons = document.querySelectorAll('button');
+  
+		for (var i = 0; i </code><code>&lt; buttons.length ; i++) {
+		  buttons[i].addEventListener('click', createParagraph);
+		}</code>
+	   </pre>
+	   <li>Guarda tu archivo y actualiza tu navegador – ahora deberías ver cuando das clic en el botón, que un nuevo párrafo es generado y posicionado debajo de él.</li></ol>
+		<div class="note">
+		  <p><strong>Nota:</strong> Si al parecer tu ejemplo no funciona, revisa tu código paso a paso y asegúrate que todo lo hayas hecho bien, ¿verificaste si guardaste tu archivo con la extensión .html? ¿Añadiste el tag <mark><code>&lt;script&gt;</code></mark> justo después del tag <mark><code>&lt;/body&gt;</code></mark>? ¿Introduciste el código JavaScript como se mostraba anteriormente? <strong>JavaScript es sensitivo y exigente con mayúsculas y minúsculas, así que necesitas introducir la sintaxis exactamente como se muestra, de otro modo no funcionará.</strong></p>
+		</div>
+		<p></p>
+	  <div class="note">
+		  <p><strong>Nota:</strong> Puedes ver esta versión en GitHub apply-javascript-internal.html (Puedes verlo en vivo también).</p>
+	   </div>
+	 <h3>JavaScript Externo</h3>
+		<p>Esto trabaja muy bien, pero, ¿qué pasa si queremos poner nuestro JavaScript en un archivo externo? Entonces exploremos esto ahora.</p>
+		<ol>
+		  <li>Primero, crea un nuevo archivo en la misma dirección o sitio de tu archivo muestra de HTML. Llámalo script.js– asegúrate que lleve la extensión .js así es como es reconocido un archivo JavaScript.</li>
+		  <li>Siguiente, copia todo el código que has escrito anteriormente dentro del elemento <mark><code>&lt;script&gt;</code></mark> y pégalo dentro del archivo .js y guárdalo.</li>
+		  <li>Ahora remplaza todo del código que está dentro del elemento <mark><code>&lt;script&gt;</code></mark> por lo siguiente:</li>
+		  
+		   <pre>
+		<code>&lt;script src="script.js"&gt;&lt;/script&gt;</code>
+		</pre>
+		  <li>Guarda y refresca tu navegador, y ¡deberías de ver exactamente lo mismo! En realidad hiciste el mismo trabajo, pero ahora conseguimos que el código esté en un archivo externo. Generalmente esto es algo bueno en términos de organizar tu código y hacerlo reusable a través de varios archivos HTML. Además los archivos HTML son fáciles de leer sin tantos pedazos de script por todos lados.</li>
+	  </ol>
+	  <p><strong>Nota:</strong> Puedes ver esta versión en GitHub como apply-javascript-external.html y script.js (Puedes verlo en vivo también).</p>
+	  
+	  <h3>Gestores de JavaScript en línea</h3>
+	  <p>A veces puedes notar que te encontraras con algunas líneas de JavaScript dentro de archivos HTML. Puede que se vean algo parecido a esto:</p>
+	  
+		  <pre class="pink">
+		<code>function createParagraph() {
+		var para = document.createElement('p');
+		para.textContent = '¡Presionaste el Botón!';
+		document.body.appendChild(para);
+	  }</code>
+	  </pre>
+	  
+	  <pre class="pink">
+		<code>&lt;button onclick="createParagraph()"&gt;¡Presioname!&lt;/button&gt;</code>
+	  </pre>
+	  <p>Este demo tiene exactamente la misma funcionalidad tanto como en las dos secciones anteriores, excepto que el elemento <mark><code>&lt;button&gt;</code></mark> incluye un controlador de línea onclick para hacer funcionar el código cuando el botón en presionado.</p>
+	  <p><strong>Por favor no hagas esto, de otro modo.</strong> Es una mala práctica contaminar tu HTML con JavaScript, y es ineficiente – Deberías de incluir el atributo onclick="createParagraph()" en cada botón que quieras para ser aplicado por JavaScript.</p>
+	  <p>Usar los constructores de JavaScript permite seleccionar todos los botones usando una sola instrucción. El código que usamos arriba sirve para este propósito viéndose así:</p>
+	  
+			  <pre>
+		<code>const buttons = document.querySelectorAll('button');
+  
+		for(let i = 0; i < buttons.length ; i++) {
+		  buttons[i].addEventListener('click', createParagraph);
+		}</code>
+	  </pre>
+	  <p>Esto puede verse un poco más grande que el atributo onclick pero esto funcionará para todos los botones sin importar cuantos haya en la página, incluso cuando sean añadidos o removidos. JavaScript no necesita ser cambiado.</p>
+	  
+	  <div class="note">
+		  <p><strong>Nota:</strong> En el caso externo, no necesitábamos utilizar el evento DOMContentLoadedporque el atributo async nos solucionaba el problema. No usamos la solución de async para el ejemplo interno de JavaScript porque async sólo funciona para scripts externos.</p>
+	   </div>
+	   <p>Una solución anticuada a este problema solía ser poner su elemento de script justo en la parte inferior del cuerpo (por ejemplo, justo antes de la etiqueta <mark><code>&lt;/body&gt;</code></mark>), de modo que se cargara después de que todo el HTML haya sido analizado. El problema con esta solución (y la solución DOMContentLoaded vista anteriormente) es que la carga/análisis del script está completamente bloqueada hasta que se haya cargado el DOM HTML. En sitios más grandes con mucho JavaScript, esto puede causar un gran problema de rendimiento, ralentizando su sitio. Esta es la razón por la que se agregó async a los navegadores!</p>
+	
+	<h4>async y defer</h4>
+	<p>En realidad hay dos maneras de evitar el problema del script de bloqueo — async y defer. Veamos la diferencia entre estos dos.</p>
+	
+	<p>Los scripts async descargarán el script sin bloquear la renderización de la página y lo ejecutarán tan pronto como el script termine de descargarse. No se garantiza que los scripts se ejecutarán en un orden específico, sólo que no impedirán que se muestre el resto de la página. Es mejor usar async cuando los scripts de la página se ejecutan independientemente uno del otro y no dependen de ningún otro script de la página.</p>
+	
+	<p>Por ejemplo, si tiene los siguientes elementos de script:</p>  
+	<pre>
+		<code>&lt;script async src="js/vendor/jquery.js">&lt;/script&gt;</code>
+		
+		<code>&lt;script async src="js/script2.js"&gt;&lt;/script&gt;</code>
+		
+		<code>&lt;script async src="js/script3.js"&gt;&lt;/script&gt;</code>    
+	  </pre>
+	<p>No puede confiar en el orden en que se cargarán los scripts. jquery.js puede cargar antes o después de script2.js y script3.js y si este es el caso, cualquier función en esos scripts que dependa de jquery producirá un error porque jquery no se definirá en el momento en que se ejecute el script.</p>
+	<p>Defer ejecutará los scripts en el orden en que aparecen en la página y los ejecutará tan pronto como el script y el contenido sean descargados:</p>
+	
+	<pre>
+		<code>&lt;script defer src="js/vendor/jquery.js">&lt;/script&gt;</code>
+		
+		<code>&lt;script defer src="js/script2.js"&gt;&lt;/script&gt;</code>
+		
+		<code>&lt;script defer src="js/script3.js"&gt;&lt;/script&gt;</code>    
+	  </pre>
+	
+	<p>Todos los scripts con el atributo defer se cargarán en el orden en que aparecen en la página. Así que en el segundo ejemplo, podemos estar seguros de que jquery.js se cargará antes que  script2.js y script3.js y que script2.js se cargará antes que script3.js.</p>
+	<p>Para resumir:</p>
+		 <ol>
+		   <li>Si sus scripts no necesitan esperar para el análisis y pueden ejecutarse independientemente sin dependencias, entonces use async.</li>
+		   <li>Si sus scripts necesitan esperar a ser analizados y dependen de otros scripts, cárguelos usando defer y coloque sus elementos <mark><code>&lt;script&gt;</code></mark> en el orden correspondiente en el que usted desea que el navegador los ejecute.</li>
+	  </ol><hr>
+	</section>
+	<section class="main-section" id="Comentarios">
+	<header>Comentarios</header>
+	  <p>Así como en HTML y CSS, es posible escribir comentarios dentro de tu código de JavaScript que serán ignorados por el navegador, simplemente existe para proveer instrucciones a tus colegas desarrolladores de como el código funciona (y para ti, por si regresas a tu código después de 6 meses y no recuerdas lo que hiciste). Los comentarios son muy útiles, deberías usarlos más a menudo, particularmente para grandes aplicaciones. He aquí dos tipos:</p>
+	  <ul>
+		<li>Comentarios de una sola línea escritos después de dos barras inclinadas (//), Ejemplo:
+  </li>
+	   <pre>
+	   <code>// Soy un comentario</code>    
+	   </pre>
+		<li>Comentarios de varias líneas escritos entre las cadenas /* y */, ejemplo:
+  </li>
+	   <pre>
+	   <code>/*
+	   Yo tambíen
+	   soy un commentario
+	   */</code>    
+	   </pre>
+	  </ul>
+	<p>Entonces por ejemplo, podemos anotar nuestro último demo de JavaScript con comentarios como:</p>
+	  
+		 <pre>
+		<code>// Función: crea un nuevo párrafo y lo añade en la parte inferior del cuerpo HTML.</code> 
+	   
+		<code>function createParagraph() {
+		  let para = document.createElement('p');
+		  para.textContent = 'You clicked the button!';
+		  document.body.appendChild(para);
+		}</code>
+	   <code>/*
+		1. Obtiene referencias de todos los botones de la página y los ordena en una matriz.
+		2. Recorre todos los botones y añade un clic event listener a cada uno de ellos.
+  
+		Cuando se pulsa cualquier botón, se ejecuta la función createParagraph().
+		*/</code>    
+			  <code>const buttons = document.querySelectorAll('button');</code>
+		<code>for (let i = 0; i < buttons.length ; i++) {
+		 buttons[i].addEventListener('click', createParagraph);
+		 }</code> 
+	   </pre><hr>      
+	  
+	  </section>
+	<section class="main-section" id="Resumen">
+	<header>Resumen</header>
+	  <p>Ahí vas, tus primeros pasos dentro del mundo de JavaScript, hemos comenzado solamente con teoría, para comenzar a entender por qué usamos JavaScript, y qué tipo de cosas puedes usar con él. En el camino viste unos cuantos ejemplos de código y aprendiste cómo JavaScript encaja con el resto del código de tu página web, entre otras cosas.</p>
+	  <p>JavaScript puede que se vea un poco desalentador por ahora, pero no te preocupes – en este curso te llevaremos a través de pasos simples que harán que sigas adelante. En el siguiente artículo iremos directo a la práctica, consiguiendo un salto directo para construir tus propios ejemplos en JavaScript.</p><hr>
+	  </section>
+	  
+	<section class="main-section" id="En_este_módulo">
+	<header>En este módulo</header>  
+	  <ul>
+		<li>¿Qué es JavaScript?</li>
+		<li>Un primer acercamiento a JavaScript</li>
+		<li>¿Qué salió mal? Troubleshooting JavaScript</li>
+		<li>Guardando la información que necesitas— Variables</li>
+		<li>Matemáticas básicas en JavaScript — números y operadores</li>
+		<li>Manejo de texto — cadenas en JavaScript</li>
+		<li>Métodos útiles para el manejo de cadenas</li>
+		<li>Arreglos</li>
+	  </ul>
+	  </section>
+	  
+  
+  
+  
+  
